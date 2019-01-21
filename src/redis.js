@@ -9,6 +9,7 @@
 
 import redis from 'redis';
 import bluebird from 'bluebird';
+// eslint-disable-next-line no-unused-vars
 import errors from './errors';
 
 bluebird.promisifyAll(redis.RedisClient.prototype);

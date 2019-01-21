@@ -1,3 +1,40 @@
+# DB Setup
+## Creating models
+```
+npm run db:model:generate -- --name users --attributes is_deleted:boolean
+```
+## Running migrations
+```
+npm run db:migrate
+```
+See package.json for more useful commands starting with *db:*
+
+## Updating models
+It's a two step process.
+
+### Update model
+* Go to 'src/models'
+* Change model file
+
+### Add Migration
+Create migration as per changes created in above step.
+
+# Running & Debug
+To run the app
+```
+yarn run start
+```
+
+To Debug
+* Go to VSCode Debug Settings
+* Click on Dropdown
+* Select *Debug*
+* Hit run
+
+# Adding Routes
+* Add necessary routes in `routes\routename.js`
+* Import the above route in `app.js` using *app.use*
+
 # Node.js API Starter Kit &nbsp; <a href="https://github.com/kriasoft/nodejs-api-starter/stargazers"><img src="https://img.shields.io/github/stars/kriasoft/nodejs-api-starter.svg?style=social&label=Star&maxAge=3600" height="20"></a> <a href="https://twitter.com/ReactStarter"><img src="https://img.shields.io/twitter/follow/ReactStarter.svg?style=social&label=Follow&maxAge=3600" height="20"></a>
 
 Boilerplate and tooling for authoring **data API** backends with **[Node.js][node]** and

@@ -1,24 +1,5 @@
-// module.exports = {
-//   development: {
-//     dialect: 'sqlite',
-//     storage: './db.development.sqlite',
-//   },
-//   test: {
-//     dialect: 'sqlite',
-//     storage: ':memory:',
-//   },
-//   production: {
-//     username: process.env.DB_USERNAME,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_NAME,
-//     host: process.env.DB_HOSTNAME,
-//     dialect: 'mysql',
-//     use_env_variable: 'DATABASE_URL',
-//   },
-// };
-
+/* eslint-disable */
 const Sequelize = require('sequelize');
-
 const Umzug = require('umzug');
 
 export const sequelize = new Sequelize('wilsontest', 'postgres', 'postgres', {
@@ -33,8 +14,7 @@ export const sequelize = new Sequelize('wilsontest', 'postgres', 'postgres', {
   },
 });
 
-const location = 'build/migrations';
-
+const location = 'migrations';
 const umzug = new Umzug({
   storage: 'sequelize',
   storageOptions: {
@@ -50,6 +30,7 @@ const umzug = new Umzug({
   },
 });
 
+/* eslint-disable-next-line import/prefer-default-import */
 const runMigrations = async () => {
   try {
     console.log(new Date().toString(), 'running umzug migrations.');

@@ -9,9 +9,9 @@
 /* eslint-disable no-param-reassign, no-underscore-dangle, max-len */
 
 import passport from 'passport';
-import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
-import { Strategy as FacebookStrategy } from 'passport-facebook';
-import { Strategy as TwitterStrategy } from 'passport-twitter';
+// import { Strategy as GoogleStrategy } from 'passport-google-oauth20';
+// import { Strategy as FacebookStrategy } from 'passport-facebook';
+// import { Strategy as TwitterStrategy } from 'passport-twitter';
 
 import db from './db';
 
@@ -29,6 +29,7 @@ passport.deserializeUser((user, done) => {
 
 // Creates or updates the external login credentials
 // and returns the currently authenticated user.
+// eslint-disable-next-line no-unused-vars
 async function login(req, provider, profile, tokens) {
   let user;
 

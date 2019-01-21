@@ -1,5 +1,5 @@
 {
-  "name": "api",
+  "name": "DemoServer",
   "version": "0.0.0",
   "private": true,
   "dependencies": {
@@ -53,6 +53,7 @@
     "babel-register": "^6.26.0",
     "chokidar": "^1.7.0",
     "del": "3.0.0",
+    "dotenv": "^6.2.0",
     "eslint": "^4.13.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -62,7 +63,8 @@
     "flow-bin": "^0.61.0",
     "husky": "^0.14.3",
     "lint-staged": "^6.0.0",
-    "prettier": "^1.9.2"
+    "prettier": "^1.9.2",
+    "sequelize-cli": "^5.4.0"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "<rootDir>/tools/jest.setup.js"
@@ -101,6 +103,12 @@
     "docker-db-migration": "docker-compose exec api yarn db-migration",
     "docker-db-seed": "docker-compose exec api yarn db-seed",
     "deploy": "node tools/publish.js",
-    "start": "node tools/run.js"
+    "start": "node tools/run.js",
+    "debug": "node --inspect tools/run.js",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed:all": "sequelize db:seed:all",
+    "db:migrate:undo": "sequelize db:migrate:undo",
+    "db:migrate:undo:all": "sequelize db:migrate:undo:all",
+    "db:model:generate" : "sequelize model:generate"
   }
 }

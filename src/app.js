@@ -13,8 +13,6 @@ import cors from 'cors';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import bodyParser from 'body-parser';
-import session from 'express-session';
-import connectRedis from 'connect-redis';
 import flash from 'express-flash';
 import i18next from 'i18next';
 import i18nextMiddleware, {
@@ -29,10 +27,11 @@ import { printSchema } from 'graphql';
 // import email from './email';
 // import redis from './redis';
 // import passport from './passport';
-import accountRoutes from './routes/account';
+// import accountRoutes from './routes/account';
 import schema from './schema';
 import Context from './Context';
 import errors from './errors';
+import users from './routes/users';
 
 i18next
   .use(LanguageDetector)
@@ -87,16 +86,10 @@ app.use(i18nextMiddleware.handle(i18next));
 // app.use(passport.session());
 app.use(flash());
 
-app.use(accountRoutes);
+app.use('/users', users);
 
 // The following routes are intended to be used in development mode only
 if (process.env.NODE_ENV !== 'production') {
-  // A route for testing email templates
-  app.get('/:email(email|emails)/:template', (req, res) => {
-    const message = email.render(req.params.template, { t: req.t, v: 123 });
-    res.send(message.html);
-  });
-
   // A route for testing authentication/authorization
   app.get('/', (req, res) => {
     if (req.user) {

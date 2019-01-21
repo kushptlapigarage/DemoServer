@@ -10,7 +10,6 @@
 
 import app from './app';
 import db from './db';
-import redis from './redis';
 import errors from './errors';
 
 const port = process.env.PORT || 8080;
@@ -24,7 +23,7 @@ const server = app.listen(port, host, () => {
 // Shutdown Node.js app gracefully
 function handleExit(options, err) {
   if (options.cleanup) {
-    const actions = [server.close, db.destroy, redis.quit];
+    const actions = [server.close, db.destroy];
     actions.forEach((close, i) => {
       try {
         close(() => {
